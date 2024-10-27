@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.conversor-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Largura máxima do contêiner */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px; /* Largura máxima para o formulário */
+  margin-right: 16px; /* Espaçamento entre formulário e histórico */
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  width: 100%; /* Fazendo o campo de formulário ocupar o máximo de espaço disponível */
+  margin-bottom: 16px; /* Espaçamento inferior entre os campos de formulário */
+}
+
+button {
+  margin-left: 8px; /* Espaçamento à esquerda do botão */
+}
+
+.tabela-historico {
+  flex: 1; /* Fazendo a tabela ocupar o espaço restante */
+  margin-left: 16px; /* Espaçamento à esquerda da tabela */
+}
+
+.tabela-historico table {
+  width: 100%; /* A tabela ocupa toda a largura disponível */
+}
