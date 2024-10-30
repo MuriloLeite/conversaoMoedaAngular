@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class HistoricoConversoesService {
   private historico: any[] = [];
-  private historicoSubject = new Subject<any[]>();
+  private historicoAtualizado = new Subject<any[]>();
 
   constructor() {}
 
@@ -16,15 +16,20 @@ export class HistoricoConversoesService {
 
   adicionarConversao(conversao: any): void {
     this.historico.push(conversao);
-    this.historicoSubject.next([...this.historico]);
+    this.historicoAtualizado.next([...this.historico]);
   }
 
   excluirConversao(index: number): void {
     this.historico.splice(index, 1);
-    this.historicoSubject.next([...this.historico]);
+    this.historicoAtualizado.next([...this.historico]);
   }
 
   getHistoricoObservable() {
-    return this.historicoSubject.asObservable();
+    return this.historicoAtualizado.asObservable();
+  }
+
+  deletarTodoHistorico(): void {
+    this.historico = [];
+    this.historicoAtualizado.next(this.historico);
   }
 }

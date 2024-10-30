@@ -20,4 +20,8 @@ export class HistoricoConversoesComponent implements OnInit {
   excluirConversao(index: number): void {
     this.historicoConversoesService.excluirConversao(index);
   }
+
+  deletarTodoHistorico(): void {
+    this.historicoConversoesService.deletarTodoHistorico();
+  }
 }

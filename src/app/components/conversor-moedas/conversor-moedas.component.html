@@ -36,6 +36,7 @@
     </form>
 
     <div *ngIf="resultado !== null" class="resultado-container">
+      <p><strong>Taxa de Conversão:</strong> {{ taxaDeCambio | number:'1.2-2' }}</p>
       <p><strong>Valor Convertido:</strong> {{ resultado | number:'1.2-2' }}</p>
     </div>
 

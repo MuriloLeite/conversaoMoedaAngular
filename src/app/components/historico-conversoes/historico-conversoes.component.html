@@ -1,5 +1,6 @@
 <div>
     <h3>Histórico de Conversões</h3>
+    <button (click)="deletarTodoHistorico()">Limpar Historico</button>
     <div class="tabela-historico">
       <table mat-table [dataSource]="historico">
         <ng-container matColumnDef="data">

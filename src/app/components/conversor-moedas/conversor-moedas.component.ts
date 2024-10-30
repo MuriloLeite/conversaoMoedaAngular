@@ -8,7 +8,7 @@ import { HistoricoConversoesService } from '../../services/historico-conversao/h
   styleUrls: ['./conversor-moedas.component.css']
 })
 export class ConversorMoedasComponent implements OnInit {
-  moedas: any[] = ['USD', 'BRL', 'EUR', 'GBP', 'JPY'];
+  moedas: any[] = [];
   moedaOrigem: string = 'BRL';
   moedaDestino: string = 'USD';
   valor: number = 1;
@@ -22,7 +22,11 @@ export class ConversorMoedasComponent implements OnInit {
     private historicoConversoesService: HistoricoConversoesService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.conversorMoedasService.obterMoedasSelecao('USD').subscribe((data) => {
+      this.moedas = Object.keys(data.conversion_rates);
+    });
+  }
 
   converter(): void {
     if (this.moedaOrigem && this.moedaDestino && this.valor) {

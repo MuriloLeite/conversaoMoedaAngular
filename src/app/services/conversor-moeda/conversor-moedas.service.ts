@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class ConversorMoedasService {
   private apiKey: string = '6834e5401d1742ca33a728e6';
+
   private apiUrl: string = `https://v6.exchangerate-api.com/v6/${this.apiKey}/pair`;
+  private apiUrlSelect: string = `https://v6.exchangerate-api.com/v6/${this.apiKey}/latest/`;
 
   constructor(private http: HttpClient) {}
 
@@ -15,4 +17,9 @@ export class ConversorMoedasService {
     const url = `${this.apiUrl}/${moedaOrigem}/${moedaDestino}`;
     return this.http.get(url);
   }
+  obterMoedasSelecao(baseCurrency: string): Observable<any> {
+    const url = `${this.apiUrlSelect}${baseCurrency}`;
+    return this.http.get<any>(url);
+}
+
 }

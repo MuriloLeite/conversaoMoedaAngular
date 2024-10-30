@@ -8,15 +8,15 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px; /* Largura máxima do contêiner */
+  max-width: 1200px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 300px; /* Largura máxima para o formulário */
-  margin-right: 16px; /* Espaçamento entre formulário e histórico */
+  max-width: 300px;
+  margin-right: 16px;
 }
 
 .input-group {
@@ -26,19 +26,19 @@
 }
 
 mat-form-field {
-  width: 100%; /* Fazendo o campo de formulário ocupar o máximo de espaço disponível */
-  margin-bottom: 16px; /* Espaçamento inferior entre os campos de formulário */
+  width: 100%;
+  margin-bottom: 16px;
 }
 
 button {
-  margin-left: 8px; /* Espaçamento à esquerda do botão */
+  margin-left: 8px;
 }
 
 .tabela-historico {
-  flex: 1; /* Fazendo a tabela ocupar o espaço restante */
-  margin-left: 16px; /* Espaçamento à esquerda da tabela */
+  flex: 1;
+  margin-left: 16px;
 }
 
 .tabela-historico table {
-  width: 100%; /* A tabela ocupa toda a largura disponível */
+  width: 100%;
 }

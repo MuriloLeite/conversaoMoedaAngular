@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MoedaEnriquecidaService } from '../../services/detalhes-moeda/moeda-enriquecida.service';
+import { MoedaDetalhesService } from '../../services/detalhes-moeda/moeda-detalhes.service';
 
 @Component({
   selector: 'app-tabela-moedas',
@@ -10,20 +10,20 @@ import { MoedaEnriquecidaService } from '../../services/detalhes-moeda/moeda-enr
   styleUrls: ['./tabela-moedas.component.css']
 })
 export class TabelaMoedasComponent implements OnInit {
-  displayedColumns: string[] = ['codigo', 'nome'];
-  dataSource: MatTableDataSource<any> = new MatTableDataSource();
+  colunasExibir: string[] = ['codigo', 'nome'];
+  fonteDados: MatTableDataSource<any> = new MatTableDataSource();
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginador!: MatPaginator;
+  @ViewChild(MatSort) ordenacao!: MatSort;
 
-  constructor(private moedaEnriquecidaService: MoedaEnriquecidaService) {}
+  constructor(private moedaService: MoedaDetalhesService) {}
 
   ngOnInit(): void {
-    this.moedaEnriquecidaService.obterMoedasSuportadas().subscribe(resposta => {
-      const moedas = this.formatarMoedas(resposta.supported_codes);
-      this.dataSource = new MatTableDataSource(moedas);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+    this.moedaService.obterMoedasSuportadas().subscribe(resposta => {
+      const listaMoedas = this.formatarMoedas(resposta.supported_codes);
+      this.fonteDados = new MatTableDataSource(listaMoedas);
+      this.fonteDados.paginator = this.paginador;
+      this.fonteDados.sort = this.ordenacao;
     });
   }
 
